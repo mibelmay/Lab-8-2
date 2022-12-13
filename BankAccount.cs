@@ -25,6 +25,22 @@ namespace BankAccount
         {
             Sum -= amount;
         }
+
+        public void Revert(Operation operation)
+        {
+            if (operation.Action == "in")
+            {
+                Sum -= operation.Amount;
+            }
+            else if (operation.Action == "out")
+            {
+                Sum += operation.Amount;
+            }
+            else
+            {
+                throw new Exception("You cannot revert a revert operation");
+            }
+        }
     }
      class Operation
     {

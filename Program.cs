@@ -12,10 +12,9 @@ namespace BankAccount
             Account account = new Account(int.Parse(file[0]));
             List<Operation> operations = LoadActions.LoadBankAccount(file);
 
-            Console.WriteLine(GetSum(LoadActions.GetDate("2021-06-01 12:00"), account, operations));
+            GetSum(operations[operations.Count - 1].Date, account, operations); //проверка корректности файла
 
         }
-
         public static int GetSum(DateTime input, Account account, List<Operation> operations)
         {
             
@@ -33,10 +32,14 @@ namespace BankAccount
                 {
                     account.Out(operations[i].Amount);
                 }
+                else if (operations[i].Action == "revert")
+                {
+
+                }
             }
             if (account.Sum < 0)
             {
-                throw new ArgumentException("File is not correct");
+                throw new Exception("File is not correct");
             }
             return account.Sum;
 
