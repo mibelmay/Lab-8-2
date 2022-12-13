@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankAccount
 {
-    class Account
+     class Account
     {
         public int Sum { get; private set; }
 
@@ -26,7 +26,7 @@ namespace BankAccount
             Sum -= amount;
         }
     }
-    class Operation
+     class Operation
     {
         public DateTime Date { get; private set; }
         public int Amount { get; private set; }
