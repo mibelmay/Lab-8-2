@@ -78,11 +78,10 @@ namespace BankAccount
 
                 DateTime data = GetDate(line[0]);
                 
-                line[1].Trim();
+                line[1].Trim(' ');
                 if (line.Length == 2)
                 {
-
-                    result.Add(new Operation(data, line[1]));
+                    result.Add(new Operation(data, "revert"));
                     continue;
                 }
                 
