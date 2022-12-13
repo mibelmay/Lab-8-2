@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Principal;
 
 namespace BankAccount
 {
@@ -14,8 +13,6 @@ namespace BankAccount
             string[] file = File.ReadAllLines(path);
             Account account = new Account(int.Parse(file[0]));
             List<Operation> operations = LoadActions.LoadBankAccount(file);
-
-
 
             Console.WriteLine("Введите дату в формате yyyy-mm-dd hh:mm\n");
             string input = Console.ReadLine();
@@ -59,7 +56,6 @@ namespace BankAccount
                 }
             }
             return account.Sum;
-
         }
     }
 }
