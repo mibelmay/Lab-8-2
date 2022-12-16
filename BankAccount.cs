@@ -87,7 +87,19 @@ namespace BankAccount
                 result.Add(new Operation(data, amount, action));
                 
             }
-            result.Sort((x, y) => x.Date.CompareTo(y.Date));
+
+            for (int i = 1; i < result.Count; i++)
+            {
+                for (int j = 0; j < result.Count - 1; j++)
+                {
+                    if (result[j].Date > result[j + 1].Date)
+                    {
+                        Operation temp = result[j];
+                        result[j] = result[j + 1];
+                        result[j + 1] = temp;
+                    }
+                }
+            }
             return result;
         }
 
