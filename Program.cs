@@ -24,7 +24,7 @@ namespace BankAccount
                     continue;
                 }
                 DateTime date = LoadActions.GetDate(input);
-                Console.Write($"Состояние счета на момент {input} : {GetSum(date, account, operations)}\n");
+                Console.Write($"Состояние счета на момент {date} : {GetSum(date, account, operations)}\n");
             }
             
 
